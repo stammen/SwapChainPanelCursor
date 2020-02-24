@@ -32,10 +32,28 @@ The following applications are required to be installed:
 1. Build the solution
 
 
-1. Run the SwapChainPanelCursor application.
+1. Run the SwapChainPanelCursor application. 
 
+	* Move the mouse pointer over the SwapChainPanel. The cursor should remain a hand cursor. 
 
+	* Click on the Change Cursor button. The cursor should change to a cross hair over the window and the SwapChainPanel.
 
+##  Comments
+
+In the file DirectXPage.xaml.cpp, look at the SetCursor() function. You will see that we need to change the cursor for both the CoreWindow and the SwapChainPanel.
+
+```c++
+void SwapChainPanelCursor::DirectXPage::SetCursor(Windows::UI::Core::CoreCursor^ cursor)
+{
+    m_currentCursor = cursor;
+    CoreWindow::GetForCurrentThread()->PointerCursor = m_currentCursor;
+    m_coreInput->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new DispatchedHandler([this]() {
+        m_coreInput->PointerCursor = m_currentCursor;
+    }));
+}
+```
+
+Look at the page's constructor for how to set up the required CoreIndependentInputSource that is needed to set the cursor for the SwapChainPanel.
 
 ##  Contributing
 
