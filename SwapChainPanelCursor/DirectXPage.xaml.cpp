@@ -40,7 +40,6 @@ DirectXPage::DirectXPage():
 	// Register event handlers for page lifecycle.
 	CoreWindow^ window = Window::Current->CoreWindow;
 
-
 	window->VisibilityChanged +=
 		ref new TypedEventHandler<CoreWindow^, VisibilityChangedEventArgs^>(this, &DirectXPage::OnVisibilityChanged);
 
@@ -217,7 +216,6 @@ void SwapChainPanelCursor::DirectXPage::Button_Click(Platform::Object^ sender, W
     else
     {
         SetCursor(ref new CoreCursor(CoreCursorType::Hand, 0));
-
     }
 }
 
