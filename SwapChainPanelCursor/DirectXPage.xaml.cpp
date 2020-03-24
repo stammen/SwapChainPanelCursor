@@ -211,7 +211,7 @@ void SwapChainPanelCursor::DirectXPage::Button_Click(Platform::Object^ sender, W
 {
     if (m_currentCursor->Type == CoreCursorType::Hand)
     {
-        SetCursor(ref new CoreCursor(CoreCursorType::Cross, 0));
+        SetCursor(ref new CoreCursor(CoreCursorType::Custom, 101));
     }
     else
     {
