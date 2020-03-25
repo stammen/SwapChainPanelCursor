@@ -9,12 +9,61 @@ The following applications are required to be installed:
 
 * Visual Studio 2017 or 2019 with C++ Windows Universal App Development package installed
 
+# Build and Run (C# example)
 
-# Build and Run
+1. Open the csharp/SwapChainPanelCursor.sln with Visual Studio 2017 or 2019
 
-1. Open the SwapChainPanelCursor.sln with Visual Studio 2017 or 2019
+1. Select the x64/x64 configuration
 
-1. Select the x64/Any CPU configuration
+1. Double-click on the Package.appxmanifest file in the SwapChainPanelCursor project. 
+
+	* Navigate to the Packaging tab
+	
+	* Click on Choose Certificate...
+	
+	* Click on Configure Certificate...
+	
+	* Select Create test certificate...
+	
+	* Click on OK (do not enter a password)
+
+1. Make sure the SwapChainPanelCursor project is the Startup Project	
+
+1. Run the SwapChainPanelCursor application. 
+
+	* Move the mouse pointer over the SwapChainPanel. The cursor should change to an I-beam a cursor. 
+	
+The C# solution has 3 projects
+
+* SwapChainPanelCursor: The C# UWP application
+
+* DirectXPanels: A C++ WinRT Component containing the code for the SwapChainPanel
+
+* CustomCursors: A Win32 Desktop DLL that builds and compiles the custom cursor resources
+
+Note: The Configuration Manager in the Build menu was used to set CustomCursors to a Release build for All Platforms/Configurations
+
+In order to use the CustomCursor resources, we need to add the compiled CustomCursor.res file to the C# SwapChainPanelCursor UWP project
+
+* Right click on the SwapChainPanelCursor and select Unload Project
+
+* Right click on the SwapChainPanelCursor and select Edit
+
+* Add the following to the end of the first PropertyGroup 
+
+```xml
+    <Win32Resource>$(SolutionDir)CustomCursors\$(Platform)\Release\CustomCursors.res</Win32Resource>
+```
+
+* Right click on the SwapChainPanelCursor and select Reload Project
+
+This will automate adding the compiles CustomResource file to the CSharp UWP app.
+
+# Build and Run (C++ example)
+
+1. Open the cpp/SwapChainPanelCursor.sln with Visual Studio 2017 or 2019
+
+1. Select the x64/Debug configuration
 
 1. Double-click on the Package.appxmanifest file in the SwapChainPanelCursor project. 
 
@@ -28,9 +77,9 @@ The following applications are required to be installed:
 	
 	* Click on OK (do not enter a password)
 	
-	
-1. Build the solution
+1. Make sure the SwapChainPanelCursor project is the Startup Project	
 
+1. Build the solution
 
 1. Run the SwapChainPanelCursor application. 
 
