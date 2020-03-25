@@ -31,7 +31,7 @@ The following applications are required to be installed:
 
 1. Run the SwapChainPanelCursor application. 
 
-	* Move the mouse pointer over the SwapChainPanel. The cursor should change to an I-beam a cursor. 
+	* Move the mouse pointer over the SwapChainPanel. The cursor should change to an I-beam cursor. 
 	
 The C# solution has 3 projects
 
