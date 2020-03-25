@@ -59,6 +59,8 @@ In order to use the CustomCursor resources, we need to add the compiled CustomCu
 
 This will automate adding the compiles CustomResource file to the CSharp UWP app.
 
+The custom cursor code is in the file DirectXPanels\D3DPanel.cpp
+
 # Build and Run (C++ example)
 
 1. Open the cpp/SwapChainPanelCursor.sln with Visual Studio 2017 or 2019
